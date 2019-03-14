@@ -1,6 +1,7 @@
 package com.hgldp.first;
 
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufAllocator;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -25,6 +26,9 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpReque
 
         channelHandlerContext.writeAndFlush(response);
 
+
+        ByteBufAllocator bufAllocator = channelHandlerContext.alloc();
+        bufAllocator.buffer();
     }
 
 
