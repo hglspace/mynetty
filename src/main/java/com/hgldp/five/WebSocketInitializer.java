@@ -28,7 +28,7 @@ public class WebSocketInitializer extends ChannelInitializer<SocketChannel> {
 
         pipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
 
-        pipeline.addLast(null);
+        pipeline.addLast(new TextWebSocketFrameHandler());
 
 
     }
