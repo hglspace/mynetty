@@ -10,3 +10,4 @@ src/test
 .DS_Store
 .gradle/
 gradle/
+out/
