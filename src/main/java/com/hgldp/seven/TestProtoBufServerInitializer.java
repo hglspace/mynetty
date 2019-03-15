@@ -14,6 +14,7 @@ import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
  * @author:hgl
  * @crate:2019-03-15 16:15
  **/
+@SuppressWarnings("all")
 public class TestProtoBufServerInitializer extends ChannelInitializer<SocketChannel> {
 
     @Override
@@ -22,7 +23,7 @@ public class TestProtoBufServerInitializer extends ChannelInitializer<SocketChan
         ChannelPipeline pipeline = ch.pipeline();
 
         pipeline.addLast(new ProtobufVarint32FrameDecoder());
-        pipeline.addLast(new ProtobufDecoder(MyDataInfo.Person.getDefaultInstance()));
+        pipeline.addLast(new ProtobufDecoder(MyData.MyMessage.getDefaultInstance()));
         pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
         pipeline.addLast(new ProtobufEncoder());
 
