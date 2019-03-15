@@ -8,3 +8,5 @@ record_msg/
 /.classpath
 src/test
 .DS_Store
+.gradle/
+gradle/
