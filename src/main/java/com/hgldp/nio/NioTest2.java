@@ -36,7 +36,7 @@ public class NioTest2 {
         }
 
         while (true){
-            int number = selector.select();
+            int number = selector.select();//该方法阻塞，完成后调用selectKeys获取事件key
             System.out.println(number);
             Set<SelectionKey> keys = selector.selectedKeys();
             System.out.println("keys:"+keys);
@@ -47,7 +47,7 @@ public class NioTest2 {
 
                     ServerSocketChannel serverSocketChannel = (ServerSocketChannel) selectionKey.channel();
                     SocketChannel socketChannel = serverSocketChannel.accept();
-                    socketChannel.configureBlocking(false);
+                    socketChannel.configureBlocking(false);//先配置，再注册，否则运行会出错
                     socketChannel.register(selector,SelectionKey.OP_READ);
 
                     iterator.remove();
