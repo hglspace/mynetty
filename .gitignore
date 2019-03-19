@@ -11,3 +11,4 @@ src/test
 .gradle/
 gradle/
 out/
+build/
